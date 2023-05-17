@@ -7,14 +7,15 @@ terraform {
   }
 }
 
-resource "helm_release" "nginx_ingress" {
-  name = "nginx-ingress-controller"
-
-  repository = "https://charts.bitnami.com/bitnami"
-  chart      = "nginx-ingress-controller"
-
-  set {
-    name  = "service.type"
-    value = "ClusterIP"
+resource "helm_release" "vault" {
+  name       = "vault"
+  repository = "https://helm.releases.hashicorp.com"
+  chart      = "vault"
+  dynamic "set" {
+    for_each = []
+    content {
+      key   = each.key
+      value = each.value
+    }
   }
 }
