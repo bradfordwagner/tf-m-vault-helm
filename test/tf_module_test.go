@@ -13,6 +13,7 @@ func TestTerraformBasicExample(t *testing.T) {
 	t.Parallel()
 
 	clusterName := fmt.Sprintf("test-cluster-%d", rand.Intn(10000))
+	clusterName = "test-cluster-1" // TODO: revert
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		// website::tag::1::Set the path to the Terraform code that will be tested.
 		// The path to where our Terraform code is located
