@@ -1,4 +1,4 @@
-module template-tf-module
+module tf-module
 
 go 1.20
 
